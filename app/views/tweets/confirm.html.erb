@@ -4,22 +4,22 @@
   <h1>以下の内容で、投稿する。</h1>
 </div>
 
-<table>
+<table style="table-layout:fixed;width:100%;">
   <tr class="tweet_table">
-<%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
-  <%= form.hidden_field :content %>
-    <td class="content2">  
-  <p>Tweet：<%= @tweet.content %></p>
+    <%= form_with(model: @tweet, url: tweets_path, local: true) do |form| %>
+      <%= form.hidden_field :content %>
+    <td class="content", style="word-wrap:break-word;">  
+      <p>Tweet：<%= @tweet.content %></p>
     </td>
     <td>
-  <%= form.submit "投稿" %>
+      <%= form.submit "投稿" %>
     </td>
-<% end %>
+    <% end %>
     <td>
-<%= form_with(model: @tweet, url: new_tweet_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :content %>
-  <%= form.submit "戻る", name: 'back' %>
-<% end %>
+    <%= form_with(model: @tweet, url: new_tweet_path, local: true, method: 'get') do |form| %>
+      <%= form.hidden_field :content %>
+      <%= form.submit "戻る", name: 'back' %>
+    <% end %>
     </td>
   </tr>
 </table>

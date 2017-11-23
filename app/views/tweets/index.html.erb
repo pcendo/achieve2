@@ -8,12 +8,14 @@
   <p><%= notice %></p>
 </div>
 
-<table>
+<div  style="height:430px; overflow-y:auto;">
+<table style="table-layout:fixed;width:100%;">
 <% @tweets.each do |tweet| %>
   <tr class="tweet_table">
-      <td class="content"><%= tweet.content %></td>
+      <td class="content", style="word-wrap:break-word;"><%= tweet.content %></td>
       <td><%= button_to "編集", edit_tweet_path(tweet.id), method: :get %></td>
       <td><%= button_to "削除", tweet_path(tweet.id), method: :delete, data: {confirm: "本当に削除していいですか？"} %></td>
   </tr>
 <% end %>
 </table>
+</div>
