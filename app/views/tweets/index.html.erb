@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "application" %>
+
+<div class="title">
+  <h1>コメント一覧</h1>
+</div>
+
+<div class="notice">
+  <p><%= notice %></p>
+</div>
+
+<table>
+<% @tweets.each do |tweet| %>
+  <tr class="tweet_table">
+      <td class="content"><%= tweet.content %></td>
+      <td><%= button_to "編集", edit_tweet_path(tweet.id), method: :get %></td>
+      <td><%= button_to "削除", tweet_path(tweet.id), method: :delete, data: {confirm: "本当に削除していいですか？"} %></td>
+  </tr>
+<% end %>
+</table>

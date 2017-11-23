@@ -1,0 +1,24 @@
+<%= stylesheet_link_tag "application" %>
+
+<%= form_with(model: @tweet, local: true, url: choose_new_or_edit) do |form| %>
+
+  <% if @tweet.errors.any? %>
+    <div id="error_explanation">
+      <ul class="notice">
+        <% @tweet.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+  <div>
+    <tr class="tweet_table">
+      <td class="content2"><%= form.label :tweet %></td>
+      <td><%= form.text_field :content, size: "110" %></td>
+      <td><%= form.submit "登録" %></td>
+    </tr>
+  </div>
+  </table>
+<% end %>

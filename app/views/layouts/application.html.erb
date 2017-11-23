@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tweets</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <div class="container">
+    <header class="header clearfix">
+      <nav>
+        <ul class="top_menu clearfix">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/tweets">投稿一覧</a></li>
+          <li><a href="/tweets/new">新規投稿</a></li>
+        </ul>
+      </nav>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>
+          $(function() {
+            $('a').on('mouseenter', function() {
+              $(this).css('color', 'black');
+            })
+            .on('mouseleave', function(){
+              $(this).css('color', 'white');
+            });
+          });
+        </script>
+    </header>
+  <div class="wrapper clearfix">
+    <%= yield %>
+  </div>
+    <footer class="footer">
+       <p>2017/11 Takashi Endo All RIGHTS RESERVED.</p>
+    </footer>
+    </div>
+  </body>
+</html>
